@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Страница прочее{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Мой сайт</h1>
+    </header>
+    <div class="menu">
+        <form action="{% url 'games_view' %}" method="get" style="display: inline;">
+            <button type="submit">Игры</button>
+        </form>
+        <form action="{% url 'bucket_view' %}" method="get" style="display: inline;">
+            <button type="submit">Магазин</button>
+        </form>
+    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Мой сайт</p>
+    </footer>
+</body>
+</html>
