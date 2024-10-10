@@ -3,7 +3,18 @@
 import os
 import sys
 
-#python manage.py runserver
+
+# python manage.py runserver
+
+# Создаем миграции с нашим приложением
+# python manage.py makemigrations task1
+# python manage.py migrate
+# Создаем супер пользователя для работой с админкой
+# python manage.py createsuperuser
+
+# Создаем шелл с нашим проектом
+# python manage.py shell (он выполняет код сразу через консоль, как вариант сделать отдельный .py и запустить там)
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'game_store.settings')
