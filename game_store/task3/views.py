@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse, HttpResponseNotFound
 from .forms import BuyerForms
-from .models import Buyer
+from .models import *
 
 existing_users = ['user1', 'admin', 'guest']
 
@@ -16,7 +16,11 @@ def index(request):
 
 
 def games_view(request):
-    return render(request, 'four_task/games_base.html')
+    games = Game.objects.all()
+    context = {
+        "Games": games,
+    }
+    return render(request, 'four_task/games_base_second.html', context)
 
 
 def bucket_view(request):

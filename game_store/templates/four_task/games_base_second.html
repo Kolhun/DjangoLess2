@@ -1,0 +1,19 @@
+<!-- tusk4/templates/tusk4/page_with_buttons.html -->
+{% extends "four_task/base.html" %}
+
+{% block title %}Страница с кнопками{% endblock %}
+
+{% block content %}
+<div class="pagename">
+    <h2>Игры</h2>
+</div>
+
+{% for games in Games %}
+    <div style="margin-bottom: 10px;">
+        <b>{{ games.title }}</b>
+        <span style="margin-left: 10px;">(Цена: {{ games.cost }} руб)</span>
+        <span style="margin-left: 10px;">(Требования: {{ games.size }} ГБ)</span>
+        <button style="margin-left: 10px;">Купить</button>
+    </div>
+{% endfor %}
+{% endblock %}

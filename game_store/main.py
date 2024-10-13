@@ -21,7 +21,7 @@ buyer3 = Buyer.objects.create(
     age=30
 )
 
-# Создаём игры
+
 game1 = Game.objects.create(
     title='Family Fun',
     cost=Decimal('19.99'),
