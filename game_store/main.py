@@ -1,5 +1,5 @@
 # Импортируем необходимые модели и классы
-from task1.models import Buyer, Game
+from task3.models import Buyer, Game
 from decimal import Decimal
 
 # Создаём покупателей

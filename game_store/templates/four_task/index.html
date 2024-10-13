@@ -1,0 +1,17 @@
+{% extends "four_task/base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+
+<h2>Список юзеров</h2>
+{% for byers in Buyer %}
+    <div style="margin-bottom: 10px;">
+        <b>{{ byers.name }}</b>
+        <span style="margin-left: 10px;">(возраст: {{ byers.age }})</span>
+        <button style="margin-left: 10px;">Купить</button>
+    </div>
+{% endfor %}
+
+{% endblock %}
