@@ -13,7 +13,7 @@ import sys
 # python manage.py createsuperuser
 
 # Создаем шелл с нашим проектом
-# python manage.py shell (он выполняет код сразу через консоль, как вариант сделать отдельный .py и запустить там)
+# python manage.py shell он выполняет код сразу через консоль
 
 def main():
     """Run administrative tasks."""

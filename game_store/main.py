@@ -1,8 +1,7 @@
-# Импортируем необходимые модели и классы
-from task3.models import Buyer, Game
+
+from task6.models import Buyer, Game
 from decimal import Decimal
 
-# Создаём покупателей
 buyer1 = Buyer.objects.create(
     name='young_gamer',
     balance=Decimal('100.00'),

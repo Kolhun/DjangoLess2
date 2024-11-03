@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Покупатели и Игры</title>
+    <style>
+        .pagination {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .pagination .current {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список Покупателей</h1>
+    <ul>
+        {% for buyer in buyer_page_obj %}
+            <li>
+                <strong>{{ buyer.name }}</strong><br>
+                Баланс: {{ buyer.balance }}<br>
+                Возраст: {{ buyer.age }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if buyer_page_obj.has_previous %}
+                <a href="?buyer_page=1&game_page={{ game_page_obj.number }}">&laquo; первая</a>
+                <a href="?buyer_page={{ buyer_page_obj.previous_page_number }}&game_page={{ game_page_obj.number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ buyer_page_obj.number }} из {{ buyer_page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if buyer_page_obj.has_next %}
+                <a href="?buyer_page={{ buyer_page_obj.next_page_number }}&game_page={{ game_page_obj.number }}">следующая</a>
+                <a href="?buyer_page={{ buyer_page_obj.paginator.num_pages }}&game_page={{ game_page_obj.number }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <h1>Список Игр</h1>
+    <ul>
+        {% for game in game_page_obj %}
+            <li>
+                <strong>{{ game.title }}</strong><br>
+                Цена: {{ game.cost }}<br>
+                Размер: {{ game.size }} ГБ<br>
+                Описание: {{ game.description }}<br>
+                Возрастное ограничение: {% if game.age_limited %}Да{% else %}Нет{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if game_page_obj.has_previous %}
+                <a href="?game_page=1&buyer_page={{ buyer_page_obj.number }}">&laquo; первая</a>
+                <a href="?game_page={{ game_page_obj.previous_page_number }}&buyer_page={{ buyer_page_obj.number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ game_page_obj.number }} из {{ game_page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if game_page_obj.has_next %}
+                <a href="?game_page={{ game_page_obj.next_page_number }}&buyer_page={{ buyer_page_obj.number }}">следующая</a>
+                <a href="?game_page={{ game_page_obj.paginator.num_pages }}&buyer_page={{ buyer_page_obj.number }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
